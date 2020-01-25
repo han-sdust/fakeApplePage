@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>网页顶部菜单</title>
+<link rel="stylesheet" href="css/head.css">
+</head>
+<body>
+	<div class="top" style="background:#000; color:#FFF">
+			<div class="menu">
+				<!-- 把Controller中查询到的数据显示出来
+					实际上是把request对象中的数据显示出来
+				-->
+				
+				<!-- FTL 会在服务器中执行，将执行结果返给客户端 -->
+				<div class="type-menu">
+					<a class="apple-icon" href="index"><img alt="icon" src="image/apple.png" width=20px></a>
+					<#list types as type>
+						<a href="type?id=${type.id}">${type.name}</a>
+					</#list>
+				</div>
+				
+				<!-- 如果用户已经登陆，显示用户的账号，以及退出超链接 -->
+				<div class="user-menu">
+					<#if user??>
+						<div class="yes">
+							${user.username}
+							<a href="logout">退出</a>
+						</div>
+					<#else>
+						<div class="no">
+							<a href="login">登录</a>
+							<a href="register">注册</a>
+						</div>
+					</#if>
+				</div>
+				<!-- 如果用户没有登陆，显示用户登录，注册的超链接 -->
+			</div>
+		</div>
+</body>
+</html>

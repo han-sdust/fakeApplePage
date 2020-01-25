@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>${model.name}-Apple(中国大陆)-官方网站</title>
+<link rel="shortcut icon" href="image/apple.png" type="image/x-icon" />
+
+<link rel="stylesheet" href="css/model.css">
+</head>
+
+<div id="top"></div>
+<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+<script type="text/javascript">
+	$.ajax({
+		url:"index",
+		async:false,
+		type:"get",
+		dataType:"html",
+		success:function(msg){
+			$("#top").html(msg);
+		}
+	})
+</script>
+
+<body>
+	<div class="model-top">
+		<div class="center">
+			<div class="name">${model.name}</div>
+			<div class="info">
+				<a href="#">概览</a>&nbsp;&nbsp; <a href="#">技术支持</a>
+			</div>
+		</div>
+	</div>
+	<div class="center">
+		<div class="plan">
+			已加入 iPhone 年年焕新计划？ <a href="#">查询升级换购资格</a>
+		</div>
+		<div class="goods-img">
+			<img src="image/${model.showimg}">
+		</div>
+		<div class="goods-info">
+			<div class="name">购买 ${model.name}</div>
+			<div class="price">折抵换购，仅 RMB ${partPrice}元/月（0% 费率 24 个月分期）或 RMB
+				${model.price} 起*</div>
+
+			<div class="size">
+				<div class="title">选择机型</div>
+				<#list sizes as size>
+					<div class="size-item" onclick="chooseSize(this, ${size})">
+						${size} 英寸显示屏
+					</div>
+				</#list>
+			</div>
+			<div class="color">
+				<div class="title">选择外观</div>
+				<#list colors as color>
+					<div class="color-item"  onclick="chooseColor(this, '${color}')">
+						${color}
+					</div>
+				</#list>
+			</div>
+			<div class="memory">
+				<div class="title">选择存储容量</div>
+				<#list memories as memory>
+					<div class="memory-item"  onclick="chooseMemory(this, ${memory})">
+						${memory}GB
+					</div>
+				</#list>
+			</div>
+			<div>
+				<!-- 使用Ajax异步进行提交 -->
+				<a href="javascript:;" onclick="buy()">购买</a>
+				<br><br><br><br><br>
+			</div>
+		</div>
+
+	</div>
+	
+<!-- 引入JQuery的js文件 -->
+<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+
+<script type="text/javascript">
+	// 定义全局变量
+	var size;
+	var color;
+	var memory;
+
+	// 编写JavaScript代码
+	function chooseSize(t, s) {
+		size = s;
+		$(".size-item").removeClass("active");
+		// 设置边框颜色
+		$(t).addClass("active");
+	}
+	function chooseColor(t, c) {
+		color = c;
+		$(".color-item").removeClass("active");
+		// 设置边框颜色
+		$(t).addClass("active");
+	}
+	function chooseMemory(t, m) {
+		memory = m;
+		$(".memory-item").removeClass("active");
+		// 设置边框颜色
+		$(t).addClass("active");
+	}
+	function buy() {
+		// 1. 获取用户当前的选择
+		if (size == undefined) {
+			alert("请选择机型");
+			return;
+		}
+		if (color == undefined) {
+			alert("请选择外观");
+			return;
+		}
+		if (memory == undefined) {
+			alert("请选择内存容量");
+			return;
+		}
+		
+		// 将客户选择的数据，提交到服务器
+		// 使用Ajax异步请求的方式
+		$.ajax({
+			url:'buy', // 异步请求的地址
+			data:{"size":size, "color":color, "memory":memory, "model":${model.id}},
+			type:"post", // 请求类型
+			dataType:"JSON", // 返回类型
+			success:function(data) {
+				// 请求成功后的回调
+				if(data.res == -1) {
+					alert("用户未登录");
+					// 跳转到登录页面
+					window.location.href="login";
+				} else if (data.res == -2) {
+					alert("商品不存在");
+				} else if (data.res == 1) {
+					// 填写地址
+					window.location.href="order?goods="+data.goods;
+				}
+			}
+		});
+		
+	}
+</script>
+
+</body>
+
+<div id="bottom"></div>
+<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+<script type="text/javascript">
+	$.ajax({
+		url:"tail",
+		async:false,
+		type:"get",
+		dataType:"html",
+		success:function(msg){
+			$("#bottom").html(msg);
+		}
+	})
+</script>
+
+</html>

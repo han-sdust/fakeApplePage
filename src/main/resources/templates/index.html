@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Apple(中国大陆)-官方网站</title>
+<link rel="shortcut icon" href="image/apple.png" type="image/x-icon" />
+</head>
+
+<div id="top"></div>
+<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+<script type="text/javascript">
+	$.ajax({
+		url:"head",
+		async:false,
+		type:"get",
+		dataType:"html",
+		success:function(msg){
+			$("#top").html(msg);
+		}
+	})
+</script>
+
+<body>
+
+	<img src="image/index1.png" width="1903px">
+	<img src="image/index2.png" width="1903px">
+	<img src="image/index3.png" width="1903px">
+	<img src="image/index4.png" width="1903px">
+	<img src="image/index5.png" width="1903px">
+	<img src="image/index6.png" width="1903px">
+
+</body>
+
+<div id="bottom"></div>
+<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+<script type="text/javascript">
+	$.ajax({
+		url:"tail",
+		async:false,
+		type:"get",
+		dataType:"html",
+		success:function(msg){
+			$("#bottom").html(msg);
+		}
+	})
+</script>
+
+</html>

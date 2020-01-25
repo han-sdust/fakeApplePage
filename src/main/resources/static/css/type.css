@@ -1,0 +1,67 @@
+@charset "UTF-8";
+/* 写css样式 */
+
+
+.model {
+	text-align:center;
+}
+
+
+.model .order {
+   height: 30px;
+   line-height: 30px;
+   text-align: center;
+}
+.model .order .line {
+   display: inline-block;
+   width: 150px;
+   border-top: 1px solid #000 ;
+}
+.model .order .txt {
+	font-size:24px;
+	font-weigt:bold;
+	vertical-align: middle;
+}
+
+
+.model .name {
+	font-size:48px;
+	font-weigt:bold;
+	margin:10px 0px 0px 0px;
+}
+
+.model .banner {
+	align:center;
+}
+
+.model .describe {
+	font-size:24px;
+	margin:0px 0px 10px 0px;
+}
+
+.model .price {
+	color:rgb(134,134,139);
+}
+
+.model .operation a{
+	display:inline-block; /* 行内块 */
+	height: 24px;
+	font-size:20px;
+	line-height: 20px;
+	color:#06c;
+	text-decoration:none;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+
+.model .operation a:hover{
+	height: 22px;
+	line-height: 20px;
+	border-bottom:2px solid #06c;
+}
+
+.image img {
+	width=100%;
+}
+
+

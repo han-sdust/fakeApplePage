@@ -1,0 +1,17 @@
+
+# 数据库连接
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1/apple?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
+
+ # 模板引擎
+  freemarker:
+    suffix: .html # 模版文件的后缀名
+    content-type: text/html
+    charset: UTF-8
+    cache: false  # 页面缓存
+    template-loader-path: # 模版文件的路径
+    - classpath:/templates

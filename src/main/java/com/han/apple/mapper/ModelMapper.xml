@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.han.apple.mapper.ModelMapper">
+
+	<select id="selectByType" resultType="java.util.Map">
+		SELECT model.*, image.url FROM model
+		LEFT JOIN image on model.id=image.model
+		where type=#{type}
+		GROUP BY model.id
+	</select>
+	
+	<select id="selectById" resultType="com.han.apple.pojo.Model">
+		SELECT * FROM model where id=#{id}
+	</select>
+
+</mapper>

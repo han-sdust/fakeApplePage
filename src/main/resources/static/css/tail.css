@@ -1,0 +1,91 @@
+@charset "UTF-8";
+
+body {
+	margin: 0px;
+}
+
+.in {
+	margin-top: 10px;
+	background: rgb(242, 242, 242);
+}
+
+.in .box {
+	margin: auto;
+	width: 980px;
+}
+
+.in .box .suit-menu {
+	float: left;
+	width: 196px;
+}
+
+.in .box .suit-menu::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.in .box .suit-menu .menu-top {
+	margin: auto;
+	font-size: 12px;
+	height: 22px;
+	font-weight: bold;
+}
+
+.in .box .suit-menu .menu-top::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.in .box .suit-menu .in-menu {
+	margin: auto;
+	font-size: 11px;
+	line-height: 16px;
+	font-weight: lighter;
+}
+
+.in .box .suit-menu .in-menu a {
+	text-decoration: none;
+	color: #333;	
+	display: inline-block;
+}
+ .in .box .suit-menu .in-menu a:hover {
+ 	height: 14px;
+	line-height: 16px;
+	border-bottom: 1px solid #000;
+}
+
+.in .box .block {
+	clear: left;
+	height: 16px;
+}
+
+.in .box .tail-menu {
+	width: 980px;
+	margin: auto;
+	font-size: 11px;
+	line-height: 18px;
+	font-weight: lighter;
+}
+
+.in .box .tail-menu a {
+	text-decoration: none;
+	color: #0070c9;	
+	display: inline-block;
+}
+ .in .box .tail-menu a:hover {
+ 	height: 16px;
+	line-height: 17px;
+	border-bottom: 1px solid #0070c9;
+}
+
+.in .box .line {
+	width: 980px;
+	border-bottom:1px solid rgb(180,180,180);
+	margin: 10px auto 10px auto;
+}
+
+
+
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.han.apple.mapper.GoodsMapper">
+
+	<select id="selectByModel" resultType="com.han.apple.pojo.Goods">
+		select * from goods where model=#{model}
+	</select>
+	
+	<select id="selectByAll" resultType="com.han.apple.pojo.Goods">
+		select * from goods where size=#{size} and color=#{color} and memory=#{memory} and model=#{model}
+	</select>
+	
+	<select id="selectById" resultType="com.han.apple.pojo.Goods">
+		select * from goods where id=#{id}
+	</select>
+
+</mapper>

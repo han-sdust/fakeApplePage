@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>购买-Apple(中国大陆)-官方网站</title>
+<link rel="shortcut icon" href="image/apple.png" type="image/x-icon" /> 
+</head>
+
+<div id="top"></div>
+<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+<script type="text/javascript">
+	$.ajax({
+		url:"index",
+		async:false,
+		type:"get",
+		dataType:"html",
+		success:function(msg){
+			$("#top").html(msg);
+		}
+	})
+</script>
+
+<body>
+	<form>
+		商品：
+		<img src="image/${goods.img}" width="200">
+		机型：${goods.size}英寸屏幕
+		外观：${goods.color}
+		内存容量：${goods.memory} GB
+		价格：RMB ${goods.price}￥
+		<input type="hidden" name="goods" value="${goods.id}"><br>
+		地址：<input type="text" name="addr"><br>
+		收货人：<input type="text" name="reciever"><br>
+		电话：<input type="text" name="phone"><br>
+		<input type="submit" value="提交">
+	</form>
+</body>
+
+<div id="bottom"></div>
+<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+<script type="text/javascript">
+	$.ajax({
+		url:"tail",
+		async:false,
+		type:"get",
+		dataType:"html",
+		success:function(msg){
+			$("#bottom").html(msg);
+		}
+	})
+</script>
+
+</html>
